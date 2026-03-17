@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Preguntas frecuentes sobre las velas artesanales de Esencia de Luz.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas Frecuentes | Esencia de Luz</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/modals.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- PROMO BANNER -->
+    <div class="promo-banner fade-in">
+         🔥 ¡Envío Nacional Gratis en compras mayores a $80.000! ✨
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo-andre.png" alt="Esencia de Luz Logo" class="logo-img">
+                </a>
+            </div>
+            <div class="nav-actions">
+                <a href="login.html" class="user-login-btn" title="Iniciar Sesión">
+                     <i class="fas fa-user"></i>
+                </a>
+                <div class="cart-icon-btn" onclick="toggleCart()">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="products.html">Productos</a>
+                <a href="about.html">Nosotros</a>
+                <a href="faq.html" class="active">Preguntas Frecuentes</a>
+                <a href="contact.html">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER / HERO -->
+    <header class="hero-section" style="min-height: 40vh; align-items: center; justify-content: center;">
+        <div class="container hero-content text-center fade-up" style="max-width: 800px;">
+            <p class="hero-subtitle">Centro de Ayuda</p>
+            <h1 class="hero-title" style="font-size: 56px;">Preguntas Frecuentes</h1>
+            <p class="hero-description" style="margin-left: auto; margin-right: auto;">
+                 Resolvemos tus dudas sobre envíos, materiales y usos de nuestras velas con intención.
+            </p>
+        </div>
+    </header>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section" style="padding: var(--space-2xl) 0; background-color: var(--color-bg);">
+        <div class="container fade-up" style="max-width: 800px;">
+            
+            <div class="faq-item" style="border-bottom: 1px solid var(--color-border); padding: var(--space-md) 0;">
+                <button class="faq-question" style="width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; font-size: 18px; font-weight: 600; font-family: var(--font-heading); color: var(--color-text); cursor: pointer; text-align: left; padding: 10px 0;">
+                    ¿Cuánto tiempo dura encendida una vela?
+                    <i class="fas fa-chevron-down" style="color: var(--color-primary); transition: transform 0.3s;"></i>
+                </button>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; color: var(--color-text-light); line-height: 1.6;">
+                    <p style="padding-top: 10px; padding-bottom: 10px;">Nuestras velas estándar de 250g tienen una duración aproximada de 45 a 50 horas de quemado. Para maximizar su duración, te recomendamos no dejarla encendida por más de 4 horas seguidas y siempre recortar la mecha a medio centímetro antes de volver a encenderla.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" style="border-bottom: 1px solid var(--color-border); padding: var(--space-md) 0;">
+                <button class="faq-question" style="width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; font-size: 18px; font-weight: 600; font-family: var(--font-heading); color: var(--color-text); cursor: pointer; text-align: left; padding: 10px 0;">
+                    ¿De qué materiales están hechas las velas?
+                    <i class="fas fa-chevron-down" style="color: var(--color-primary); transition: transform 0.3s;"></i>
+                </button>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; color: var(--color-text-light); line-height: 1.6;">
+                    <p style="padding-top: 10px; padding-bottom: 10px;">Todas nuestras velas están hechas con 100% cera de soya natural, mechas de algodón ecológico (libres de plomo) y esencias aromáticas premium de grado cosmético. Son completamente veganas, cruelty-free y amigables con el medio ambiente porque no emiten toxinas al quemarse.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" style="border-bottom: 1px solid var(--color-border); padding: var(--space-md) 0;">
+                <button class="faq-question" style="width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; font-size: 18px; font-weight: 600; font-family: var(--font-heading); color: var(--color-text); cursor: pointer; text-align: left; padding: 10px 0;">
+                    ¿Cuánto tardan los envíos?
+                    <i class="fas fa-chevron-down" style="color: var(--color-primary); transition: transform 0.3s;"></i>
+                </button>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; color: var(--color-text-light); line-height: 1.6;">
+                    <p style="padding-top: 10px; padding-bottom: 10px;">Los envíos locales (Medellín y área metropolitana) tardan entre 1 a 2 días hábiles. Los envíos nacionales al resto de Colombia toman entre 3 a 5 días hábiles. Una vez que apruebes el pago por WhatsApp, te enviaremos tu guía de seguimiento.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" style="border-bottom: 1px solid var(--color-border); padding: var(--space-md) 0;">
+                <button class="faq-question" style="width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; font-size: 18px; font-weight: 600; font-family: var(--font-heading); color: var(--color-text); cursor: pointer; text-align: left; padding: 10px 0;">
+                    ¿Puedo hacer pedidos personalizados para eventos?
+                    <i class="fas fa-chevron-down" style="color: var(--color-primary); transition: transform 0.3s;"></i>
+                </button>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; color: var(--color-text-light); line-height: 1.6;">
+                    <p style="padding-top: 10px; padding-bottom: 10px;">¡Sí! Hacemos pedidos al por mayor y personalizados (con tu propio mensaje o paleta de colores) para bodas, bautizos, regalos corporativos y más. Escríbenos directamente a nuestro WhatsApp o correo electrónico y prepararemos una cotización especial para ti.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="logo">
+                     <i class="fa-solid fa-fire-flame-simple" style="color: var(--color-bg);"></i>
+                     <strong style="color: var(--color-bg);">Esencia de Luz</strong>
+                </div>
+                <p>Velas artesanales creadas para iluminar tus espacios y transformar tu energía.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="products.html">Productos</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="faq.html">Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+            <div class="footer-col" id="contacto">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><i class="fab fa-whatsapp"></i> +57 3219494475</li>
+                    <li><i class="fas fa-envelope"></i> florazul0416@gmail.com</li>
+                    <li><a href="https://www.instagram.com/Andre_Esencia_deLuz" target="_blank"><i class="fab fa-instagram"></i> @Andre_Esencia_deLuz</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Esencia de Luz. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/573219494475" class="whatsapp-float" target="_blank" aria-label="Chat by WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- CART DRAWER -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button class="cart-close" onclick="closeCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items-container">
+            <!-- Items from JS -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-shipping" style="margin-bottom: 15px;">
+                <label for="shipping-select-faq" style="font-size: 14px; font-weight: 600; display: block; margin-bottom: 6px;">Método de Envío:</label>
+                <select id="shipping-select" class="form-input" style="width: 100%; padding: 10px; border: 1px solid var(--color-border); border-radius: 6px; font-family: inherit; font-size: 14px;" onchange="renderCart()">
+                    <option value="0">Recogida en taller (Gratis)</option>
+                    <option value="10000">Envío Local Medellín ($10.000)</option>
+                    <option value="15000">Envío Nacional ($15.000)</option>
+                </select>
+            </div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">$0</span>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;" onclick="checkoutWhatsApp()">
+                <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                if (answer.style.maxHeight) {
+                    answer.style.maxHeight = null;
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+    </script>
+    <script src="assets/js/api-client.js"></script>
+    <script src="assets/js/inventory.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/main.js"></script>
+
+     <!-- SUCCESS MODAL -->
+     <div id="success-modal" class="success-modal">
+          <div class="success-content">
+               <img src="assets/images/gracias-compra.png" alt="Gracias por tu compra" class="success-img">
+               <div class="success-body">
+                    <h3>¡Pedido Registrado!</h3>
+                    <p>Tu orden ha sido guardada en nuestro sistema. A continuación te redirigiremos a WhatsApp para coordinar el pago y envío.</p>
+                    <button class="btn btn-primary" onclick="closeSuccessAndGo()">
+                         <i class="fab fa-whatsapp"></i> Continuar a WhatsApp
+                    </button>
+               </div>
+          </div>
+     </div>
+
+</body>
+</html>
