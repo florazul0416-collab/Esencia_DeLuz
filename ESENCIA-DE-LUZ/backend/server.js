@@ -15,12 +15,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// 1. Conexión inicial al servidor (sin especificar DB)
+// 1. Configuración de conexión con soporte para Producción (SSL)
 const db = mysql.createConnection({
     host: process.env.DB_HOST || 'localhost',
     user: process.env.DB_USER || 'root',
     password: process.env.DB_PASSWORD || '',
-    multipleStatements: true // Permitir múltiples consultas para crear tablas
+    database: process.env.DB_NAME || 'esencia_de_luz',
+    port: process.env.DB_PORT || 3306,
+    multipleStatements: true,
+    ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : null
 });
 
 db.connect(async err => {
@@ -79,12 +82,12 @@ db.connect(async err => {
                     if (!err && results[0].count === 0) {
                         const initialProducts = `
                             INSERT INTO products (name, description, price, stock_quantity, image_url) VALUES
-                            ('Velas de Soja', 'Vela artesanal de cera de soja 100% natural', 25000.00, 15, 'assets/img/product-soya.jpg'),
-                            ('Velas Decorativas', 'Vela de diseño para interiores', 35000.00, 8, 'assets/img/product-deco.jpg'),
-                            ('Velas de Cumpleaños', 'Set de velas premium para celebraciones', 15000.00, 25, 'assets/img/product-birthday.jpg'),
-                            ('Velas Aromáticas', 'Esencias relajantes para tu hogar', 28000.00, 12, 'assets/img/product-aroma.jpg'),
-                            ('Velas de Té', 'Pack de 12 velas pequeñas de larga duración', 18000.00, 40, 'assets/img/product-tea.jpg'),
-                            ('Velas de Colores', 'Velas vibrantes para rituales y decoración', 12000.00, 20, 'assets/img/product-colors.jpg');
+                            ('Colección Inspiración', 'Vela especial Día de la Mujer - Fuerza y Valor', 35000.00, 10, 'assets/images/Coleccion Mujer.jpeg'),
+                            ('Vela Propósito Blue', 'Vela de intención con aroma a Eucalipto', 32000.00, 12, 'assets/images/Coleccion Velas Proposito.jpeg'),
+                            ('Vela Propósito Pink', 'Vela de intención con aroma a Rosas', 32000.00, 12, 'assets/images/Coleccion Velas Proposito Rosa.jpeg'),
+                            ('Vela Abundancia', 'Aroma Canela y Prosperidad', 30000.00, 8, 'assets/images/Coleccion vela Abundancia Atraccion y Dulzura.jpeg'),
+                            ('Wax Melts Paz Interior', 'Corazones aromáticos de Lavanda Relajante', 18000.00, 20, 'assets/images/Wax Melts Calma.jpeg'),
+                            ('Wax Melts Maracuyá', 'Corazones aromáticos frutales y energizantes', 18000.00, 15, 'assets/images/Wax Melts Candle Juice Maracuya.jpeg');
                         `;
                         db.query(initialProducts, (err) => {
                             if (!err) console.log('¡Productos iniciales cargados en la base de datos!');
