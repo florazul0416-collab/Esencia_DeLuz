@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description"
+        content="Contáctanos para más información sobre nuestras velas artesanales con intención espiritual.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Esencia de Luz</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/modals.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- PROMO BANNER -->
+    <div class="promo-banner fade-in">
+         🔥 ¡Envío Nacional Gratis en compras mayores a $80.000! ✨
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo-andre.png" alt="Esencia de Luz Logo" class="logo-img">
+                </a>
+            </div>
+            <div class="nav-actions">
+                <a href="login.html" class="user-login-btn" title="Iniciar Sesión">
+                     <i class="fas fa-user"></i>
+                </a>
+                <div class="cart-icon-btn" onclick="toggleCart()">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="products.html">Productos</a>
+                <a href="about.html">Nosotros</a>
+                <a href="faq.html">Preguntas Frecuentes</a>
+                <a href="contact.html" class="active">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero hero-sm">
+        <img src="assets/images/hero-banner.png" alt="Contacto Esencia de Luz" class="hero-bg">
+        <div class="hero-content">
+            <p class="hero-label">Estamos para ti</p>
+            <h1>CONTÁCTANOS</h1>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contact-section">
+        <div class="container">
+
+            <h2 class="contact-title fade-up">Envíanos un mensaje</h2>
+
+            <div class="contact-grid">
+
+                <!-- FORMULARIO -->
+                <div class="contact-form-card fade-up">
+                    <form id="contact-form" onsubmit="enviarFormulario(event)">
+
+                        <input type="text" name="user_name" placeholder="Tu nombre completo" required>
+
+                        <input type="email" name="user_email" placeholder="Tu correo electrónico" required>
+
+                        <textarea name="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            Enviar mensaje
+                        </button>
+
+                    </form>
+                </div>
+
+                <!-- INFORMACIÓN -->
+                <div class="contact-info fade-up">
+
+                    <h3>También puedes escribirnos</h3>
+
+                    <p>
+                        Si prefieres una respuesta más rápida,
+                        puedes escribirnos directamente por
+                        WhatsApp o nuestras redes sociales.
+                        Estaremos encantados de ayudarte a encontrar
+                        tu vela perfecta.
+                    </p>
+
+                    <div class="contact-icons">
+
+                        <a href="https://wa.me/573219494475" target="_blank" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/Andre_Esencia_deLuz" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <a href="mailto:florazul0416@gmail.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+
+                    </div>
+
+                    <div style="margin-top: 32px;">
+                        <a class="btn-whatsapp"
+                            href="https://wa.me/573219494475?text=Hola%20quiero%20más%20información%20sobre%20las%20velas%20de%20Esencia%20de%20Luz"
+                            target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            Chat directo por WhatsApp
+                        </a>
+                    </div>
+
+                    <div style="margin-top: 40px;">
+                        <h3>Métodos de Pago Manuales</h3>
+                        <p style="margin-bottom: 16px; font-size: 0.95rem; color: var(--color-text-light);">
+                            Para compras directas, recibimos:
+                        </p>
+                        <div style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
+                            <span class="payment-tag">
+                                <i class="fa-solid fa-mobile-screen"></i> Nequi: 3044107050
+                            </span>
+                            <span class="payment-tag">
+                                <i class="fa-solid fa-building-columns"></i> Bancolombia: 55387247326
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/573219494475" class="whatsapp-float" target="_blank" aria-label="Chat by WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="assets/images/logo-andre.png" alt="Esencia de Luz Logo" class="logo-img">
+                        </a>
+                    </div>
+                    <p>Velas artesanales creadas con intención para iluminar tu camino hacia la calma y el bienestar.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegación</h4>
+                    <a href="index.html">Inicio</a>
+                    <a href="products.html">Productos</a>
+                    <a href="about.html">Nosotros</a>
+                    <a href="faq.html">Preguntas Frecuentes</a>
+                    <a href="contact.html">Contacto</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Colecciones</h4>
+                    <a href="products.html">Calma Interior</a>
+                    <a href="products.html">Amor y Armonía</a>
+                    <a href="products.html">Energía Positiva</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <a href="https://wa.me/573219494475" target="_blank">WhatsApp</a>
+                    <a href="mailto:florazul0416@gmail.com">Email</a>
+                    <a href="https://www.instagram.com/Andre_Esencia_deLuz" target="_blank">Instagram</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Esencia de Luz. Todos los derechos reservados.</p>
+                <div class="footer-social">
+                    <a href="https://wa.me/573219494475" target="_blank" aria-label="WhatsApp"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/Andre_Esencia_deLuz" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/contact.js"></script>
+    <!-- CART DRAWER -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button class="cart-close" onclick="closeCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items-container">
+            <!-- Items from JS -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-shipping" style="margin-bottom: 15px;">
+                <label for="shipping-select-contact" style="font-size: 14px; font-weight: 600; display: block; margin-bottom: 6px;">Método de Envío:</label>
+                <select id="shipping-select" class="form-input" style="width: 100%; padding: 10px; border: 1px solid var(--color-border); border-radius: 6px; font-family: inherit; font-size: 14px;" onchange="renderCart()">
+                    <option value="0">Recogida en taller (Gratis)</option>
+                    <option value="10000">Envío Local Medellín ($10.000)</option>
+                    <option value="15000">Envío Nacional ($15.000)</option>
+                </select>
+            </div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">$0</span>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;" onclick="checkoutWhatsApp()">
+                <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <script src="assets/js/api-client.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/main.js"></script>
+
+     <!-- SUCCESS MODAL -->
+     <div id="success-modal" class="success-modal">
+          <div class="success-content">
+               <img src="assets/images/gracias-compra.png" alt="Gracias por tu compra" class="success-img">
+               <div class="success-body">
+                    <h3>¡Pedido Registrado!</h3>
+                    <p>Tu orden ha sido guardada en nuestro sistema. A continuación te redirigiremos a WhatsApp para coordinar el pago y envío.</p>
+                    <button class="btn btn-primary" onclick="closeSuccessAndGo()">
+                         <i class="fab fa-whatsapp"></i> Continuar a WhatsApp
+                    </button>
+               </div>
+          </div>
+     </div>
+
+</body>
+
+</html>

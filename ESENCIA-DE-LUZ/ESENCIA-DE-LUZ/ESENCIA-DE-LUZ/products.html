@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Descubre toda nuestra colección de velas artesanales con intención espiritual.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos | Esencia de Luz</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/modals.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- PROMO BANNER -->
+    <div class="promo-banner fade-in">
+         🔥 ¡Envío Nacional Gratis en compras mayores a $80.000! ✨
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <i class="fa-solid fa-fire-flame-simple"></i>
+                    <strong>Esencia de Luz</strong>
+                </a>
+            </div>
+            <div class="nav-actions">
+                <a href="login.html" class="user-login-btn" title="Iniciar Sesión">
+                     <i class="fas fa-user"></i>
+                </a>
+                <div class="cart-icon-btn" onclick="toggleCart()">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="products.html" class="active">Productos</a>
+                <a href="about.html">Nosotros</a>
+                <a href="faq.html">Preguntas Frecuentes</a>
+                <a href="contact.html">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero hero-sm">
+        <img src="assets/images/collection.png" alt="Colección de velas" class="hero-bg">
+        <div class="hero-content">
+            <p class="hero-label">Catálogo Completo</p>
+            <h1>NUESTRAS<br><span class="highlight">VELAS</span></h1>
+            <p>Descubre la vela perfecta para acompañar tu intención y tu momento.</p>
+        </div>
+    </section>
+
+    <!-- CATÁLOGO -->
+    <section class="section-product">
+        <div class="container">
+
+            <div class="section-header fade-up">
+                <p class="subtitle">Explora Nuestra Colección</p>
+                <h2>Todas las Velas</h2>
+            </div>
+
+            <div class="products-grid">
+
+                <!-- COLECCIÓN MUJER -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-tag">Día de la Mujer</span>
+                        <img src="assets/images/Coleccion Mujer.jpeg" alt="Colección Mujer - Inspiración">
+                    </div>
+                    <div class="product-info">
+                        <h3>Colección Inspiración</h3>
+                        <p class="product-aroma">Fuerza y Valor</p>
+                        <p class="product-price">$35.000</p>
+                        <div class="product-buttons">
+                            <a class="btn btn-primary" href="product-detail.html">Ver detalles</a>
+                            <button class="btn btn-outline"
+                                onclick="addToCart('Colección Inspiración', 35000, 'assets/images/Coleccion Mujer.jpeg')">
+                                <i class="fas fa-shopping-bag"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLECCIÓN PROPÓSITO -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-tag">Nuevo</span>
+                        <img src="assets/images/Coleccion Velas Proposito.jpeg" alt="Colección Propósito - Eucalipto">
+                    </div>
+                    <div class="product-info">
+                        <h3>Vela Propósito Blue</h3>
+                        <p class="product-aroma">Aroma Eucalipto</p>
+                        <p class="product-price">$32.000</p>
+                        <div class="product-buttons">
+                            <a class="btn btn-primary" href="product-detail.html">Ver detalles</a>
+                            <button class="btn btn-outline"
+                                onclick="addToCart('Vela Propósito Blue', 32000, 'assets/images/Coleccion Velas Proposito.jpeg')">
+                                <i class="fas fa-shopping-bag"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLECCIÓN ABUNDANCIA -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/images/Coleccion vela Abundancia Atraccion y Dulzura.jpeg" alt="Vela Abundancia">
+                    </div>
+                    <div class="product-info">
+                        <h3>Vela Abundancia</h3>
+                        <p class="product-aroma">Canela y Prosperidad</p>
+                        <p class="product-price">$30.000</p>
+                        <div class="product-buttons">
+                            <a class="btn btn-primary" href="product-detail.html">Ver detalles</a>
+                            <button class="btn btn-outline"
+                                onclick="addToCart('Vela Abundancia', 30000, 'assets/images/Coleccion vela Abundancia Atraccion y Dulzura.jpeg')">
+                                <i class="fas fa-shopping-bag"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WAX MELTS -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-tag">Esencial</span>
+                        <img src="assets/images/Wax Melts Calma.jpeg" alt="Wax Melts Paz Interior">
+                    </div>
+                    <div class="product-info">
+                        <h3>Wax Melts Paz Interior</h3>
+                        <p class="product-aroma">Lavanda Relajante</p>
+                        <p class="product-price">$18.000</p>
+                        <div class="product-buttons">
+                            <a class="btn btn-primary" href="product-detail.html">Ver detalles</a>
+                            <button class="btn btn-outline"
+                                onclick="addToCart('Wax Melts Paz Interior', 18000, 'assets/images/Wax Melts Calma.jpeg')">
+                                <i class="fas fa-shopping-bag"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WAX MELTS MARACUYA -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/images/Wax Melts Candle Juice Maracuya.jpeg" alt="Wax Melts Maracuyá">
+                    </div>
+                    <div class="product-info">
+                        <h3>Wax Melts Maracuyá</h3>
+                        <p class="product-aroma">Frutal y Energizante</p>
+                        <p class="product-price">$18.000</p>
+                        <div class="product-buttons">
+                            <a class="btn btn-primary" href="product-detail.html">Ver detalles</a>
+                            <button class="btn btn-outline"
+                                onclick="addToCart('Wax Melts Maracuyá', 18000, 'assets/images/Wax Melts Candle Juice Maracuya.jpeg')">
+                                <i class="fas fa-shopping-bag"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VELA PROPÓSITO ROSA -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/images/Coleccion Velas Proposito Rosa.jpeg" alt="Vela Propósito Rosa">
+                    </div>
+                    <div class="product-info">
+                        <h3>Vela Propósito Pink</h3>
+                        <p class="product-aroma">Aroma Rosas</p>
+                        <p class="product-price">$32.000</p>
+                        <div class="product-buttons">
+                            <a class="btn btn-primary" href="product-detail.html">Ver detalles</a>
+                            <button class="btn btn-outline"
+                                onclick="addToCart('Vela Propósito Pink', 32000, 'assets/images/Coleccion Velas Proposito Rosa.jpeg')">
+                                <i class="fas fa-shopping-bag"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/573219494475" class="whatsapp-float" target="_blank" aria-label="Chat by WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="assets/images/logo-andre.png" alt="Esencia de Luz Logo" class="logo-img">
+                        </a>
+                    </div>
+                    <p>Velas artesanales creadas con intención para iluminar tu camino hacia la calma y el bienestar.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegación</h4>
+                    <a href="index.html">Inicio</a>
+                    <a href="products.html">Productos</a>
+                    <a href="about.html">Nosotros</a>
+                    <a href="faq.html">Preguntas Frecuentes</a>
+                    <a href="contact.html">Contacto</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Colecciones</h4>
+                    <a href="products.html">Calma Interior</a>
+                    <a href="products.html">Amor y Armonía</a>
+                    <a href="products.html">Energía Positiva</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <a href="https://wa.me/573219494475" target="_blank">WhatsApp</a>
+                    <a href="mailto:florazul0416@gmail.com">Email</a>
+                    <a href="https://www.instagram.com/Andre_Esencia_deLuz" target="_blank">Instagram</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Esencia de Luz. Todos los derechos reservados.</p>
+                <div class="footer-social">
+                    <a href="https://wa.me/573219494475" target="_blank" aria-label="WhatsApp"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/Andre_Esencia_deLuz" target="_blank" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/whatsapp.js"></script>
+    <script src="assets/js/api-client.js"></script>
+    <script src="assets/js/inventory.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/main.js"></script>
+
+     <!-- SUCCESS MODAL -->
+     <div id="success-modal" class="success-modal">
+          <div class="success-content">
+               <img src="assets/images/gracias-compra.png" alt="Gracias por tu compra" class="success-img">
+               <div class="success-body">
+                    <h3>¡Pedido Registrado!</h3>
+                    <p>Tu orden ha sido guardada en nuestro sistema. A continuación te redirigiremos a WhatsApp para coordinar el pago y envío.</p>
+                    <button class="btn btn-primary" onclick="closeSuccessAndGo()">
+                         <i class="fab fa-whatsapp"></i> Continuar a WhatsApp
+                    </button>
+               </div>
+          </div>
+     </div>
+
+</body>
+
+</html>
