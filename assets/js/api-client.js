@@ -1,7 +1,7 @@
 // Detección dinámica de la URL del servidor
 const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
     ? 'http://localhost:5000/api'
-    : 'https://tu-servidor-en-render.onrender.com/api'; // <--- Cambiar por tu URL de Render después de desplegar
+    : 'https://esencia-backend.onrender.com/api'; // <--- URL de Render actualizada
 
 const apiClient = {
     // 1. Obtener todos los productos
