@@ -27,7 +27,7 @@
 
     <!-- PROMO BANNER -->
     <div class="promo-banner fade-in">
-         🔥 ¡Envío Nacional Gratis en compras mayores a $80.000! ✨
+        🔥 ¡Envío Nacional Gratis en compras mayores a $80.000! ✨
     </div>
 
     <!-- NAVBAR -->
@@ -40,7 +40,7 @@
             </div>
             <div class="nav-actions">
                 <a href="login.html" class="user-login-btn" title="Iniciar Sesión">
-                     <i class="fas fa-user"></i>
+                    <i class="fas fa-user"></i>
                 </a>
                 <div class="cart-icon-btn" onclick="toggleCart()">
                     <i class="fas fa-shopping-bag"></i>
@@ -67,34 +67,34 @@
 
                 <!-- IMAGEN -->
                 <div class="product-detail-image fade-up">
-                    <img src="assets/images/product-lavender.png" alt="Vela Calma Interior">
+                    <img id="detail-img" src="assets/images/product-lavender.png" alt="Vela">
                 </div>
 
                 <!-- INFO -->
                 <div class="product-detail-info fade-up">
 
-                    <p class="text-uppercase" style="color: var(--color-primary); margin-bottom: 8px;">
+                    <p class="text-uppercase" style="color: var(--color-primary); margin-bottom: 8px;" id="detail-category">
                         Colección Esencial
                     </p>
 
-                    <h1>Calma Interior</h1>
+                    <h1 id="detail-name">Calma Interior</h1>
 
-                    <p class="price">$25.000</p>
+                    <p class="price" id="detail-price">$25.000</p>
 
                     <ul class="product-meta">
-                        <li><strong>Aroma:</strong> Lavanda</li>
-                        <li><strong>Color:</strong> Lila suave</li>
-                        <li><strong>Intención:</strong> Relajación y paz interior</li>
+                        <li><strong>Aroma:</strong> <span id="detail-aroma">Lavanda</span></li>
+                        <li><strong>Intención:</strong> <span id="detail-intencion">Relajación y paz interior</span></li>
                         <li><strong>Duración:</strong> Aprox. 40 horas</li>
                     </ul>
 
-                    <p class="product-description">
+                    <p class="product-description" id="detail-desc">
                         Permite que el aroma de lavanda acompañe tus momentos de descanso,
                         meditación y tranquilidad. Elaborada artesanalmente con ingredientes
                         naturales y vertida a mano con intención positiva.
                     </p>
 
-                    <button class="btn btn-primary" onclick="addToCart('Calma Interior', 25000, 'assets/images/product-lavender.png')">
+                    <button id="detail-add-btn" class="btn btn-primary"
+                        onclick="addToCart('Calma Interior', 25000, 'assets/images/product-lavender.png')">
                         <i class="fas fa-shopping-bag"></i>
                         Añadir al Carrito
                     </button>
@@ -104,6 +104,45 @@
             </div>
         </div>
     </section>
+
+    <!-- JS PARA DINAMIZAR DETALLES -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            if(params.has('name')) {
+                const nameStr = params.get('name');
+                const priceStr = params.get('price') || '0';
+                const imageStr = params.get('image') || '';
+                const aromaStr = params.get('aroma') || '';
+                const intencionStr = params.get('intencion') || '';
+                const descStr = params.get('desc') || '';
+                
+                // Actualizar Textos
+                document.getElementById('detail-name').textContent = nameStr;
+                document.getElementById('detail-price').textContent = '$' + priceStr;
+                document.getElementById('detail-aroma').textContent = aromaStr;
+                document.getElementById('detail-intencion').textContent = intencionStr;
+                document.getElementById('detail-desc').textContent = descStr;
+                
+                // Poner la Imagen
+                if(imageStr) {
+                    document.getElementById('detail-img').src = imageStr;
+                    document.getElementById('detail-img').alt = nameStr;
+                }
+                
+                // Actualizar Botón de Añadir al Carrito
+                const numericPrice = parseFloat(priceStr.replace(/\./g, ''));
+                document.getElementById('detail-add-btn').setAttribute(
+                    'onclick', 
+                    `addToCart('${nameStr}', ${numericPrice}, '${imageStr}')`
+                );
+                
+                // Cambiar el meta title
+                document.title = nameStr + ' | Esencia de Luz';
+            }
+        });
+    </script>
+
 
     <!-- CÓMO COMPRAR -->
     <section class="how-to-buy">
@@ -211,8 +250,12 @@
         </div>
         <div class="cart-footer">
             <div class="cart-shipping" style="margin-bottom: 15px;">
-                <label for="shipping-select-detail" style="font-size: 14px; font-weight: 600; display: block; margin-bottom: 6px;">Método de Envío:</label>
-                <select id="shipping-select" class="form-input" style="width: 100%; padding: 10px; border: 1px solid var(--color-border); border-radius: 6px; font-family: inherit; font-size: 14px;" onchange="renderCart()">
+                <label for="shipping-select-detail"
+                    style="font-size: 14px; font-weight: 600; display: block; margin-bottom: 6px;">Método de
+                    Envío:</label>
+                <select id="shipping-select" class="form-input"
+                    style="width: 100%; padding: 10px; border: 1px solid var(--color-border); border-radius: 6px; font-family: inherit; font-size: 14px;"
+                    onchange="renderCart()">
                     <option value="0">Recogida en taller (Gratis)</option>
                     <option value="10000">Envío Local Medellín ($10.000)</option>
                     <option value="15000">Envío Nacional ($15.000)</option>
@@ -233,19 +276,20 @@
     <script src="assets/js/cart.js"></script>
     <script src="assets/js/main.js"></script>
 
-     <!-- SUCCESS MODAL -->
-     <div id="success-modal" class="success-modal">
-          <div class="success-content">
-               <img src="assets/images/gracias-compra.png" alt="Gracias por tu compra" class="success-img">
-               <div class="success-body">
-                    <h3>¡Pedido Registrado!</h3>
-                    <p>Tu orden ha sido guardada en nuestro sistema. A continuación te redirigiremos a WhatsApp para coordinar el pago y envío.</p>
-                    <button class="btn btn-primary" onclick="closeSuccessAndGo()">
-                         <i class="fab fa-whatsapp"></i> Continuar a WhatsApp
-                    </button>
-               </div>
-          </div>
-     </div>
+    <!-- SUCCESS MODAL -->
+    <div id="success-modal" class="success-modal">
+        <div class="success-content">
+            <img src="assets/images/gracias-compra.png" alt="Gracias por tu compra" class="success-img">
+            <div class="success-body">
+                <h3>¡Pedido Registrado!</h3>
+                <p>Tu orden ha sido guardada en nuestro sistema. A continuación te redirigiremos a WhatsApp para
+                    coordinar el pago y envío.</p>
+                <button class="btn btn-primary" onclick="closeSuccessAndGo()">
+                    <i class="fab fa-whatsapp"></i> Continuar a WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
 
 </body>
 
