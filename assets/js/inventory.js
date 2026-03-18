@@ -1,4 +1,4 @@
-/* assets/js/inventory.js */
+﻿/* assets/js/inventory.js */
 
 // Inventario inicial si no existe en localStorage
 const DEFAULT_INVENTORY = {

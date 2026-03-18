@@ -1,4 +1,4 @@
-/*
+﻿/*
 Script para manejar productos en el futuro.
 Actualmente es un placeholder para
 escalar el proyecto más adelante.

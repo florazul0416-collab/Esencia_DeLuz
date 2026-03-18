@@ -1,5 +1,5 @@
-/* =================================================
-   MAIN.JS — Esencia de Luz
+﻿/* =================================================
+   MAIN.JS — Andre-Esencia_deluz
    Interacciones, animaciones y menú
    ================================================= */
 
@@ -95,4 +95,4 @@ window.addEventListener("load", function () {
   initObserver();
 });
 
-console.log("✨ Esencia de Luz cargado correctamente");
+console.log("✨ Andre-Esencia_deluz cargado correctamente");

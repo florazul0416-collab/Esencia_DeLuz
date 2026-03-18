@@ -1,4 +1,4 @@
-/* =============================================
+﻿/* =============================================
 ENVÍO DE FORMULARIO
 ============================================= */
 
@@ -14,7 +14,7 @@ function enviarFormulario(event){
     
     // Construimos el enlace mailto
     const destino = "florazul0416@gmail.com";
-    const asunto = encodeURIComponent("Nuevo mensaje desde Esencia de Luz - " + name);
+    const asunto = encodeURIComponent("Nuevo mensaje desde Andre-Esencia_deluz - " + name);
     const cuerpo = encodeURIComponent(
         "Has recibido un nuevo mensaje desde la web:\n\n" +
         "Nombre: " + name + "\n" +

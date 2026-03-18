@@ -1,4 +1,4 @@
-/* assets/js/cart.js */
+﻿/* assets/js/cart.js */
 const WHATSAPP_NUMBER_CART = "573219494475";
 
 let cart = JSON.parse(localStorage.getItem('esenciaCart')) || [];
@@ -180,7 +180,7 @@ async function renderCart() {
 async function checkoutWhatsApp() {
     if (cart.length === 0) return;
 
-    let text = "Hola Esencia de Luz, me gustaría realizar el siguiente pedido:\n\n";
+    let text = "Hola Andre-Esencia_deluz, me gustaría realizar el siguiente pedido:\n\n";
     let subtotal = 0;
 
     cart.forEach(item => {
