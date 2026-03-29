@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout — Andre-Esencia_deluz</title>
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/checkout.css">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        /* Hide navbar in checkout for distraction-free flow */
+        .navbar, .footer, .whatsapp-float, .promo-banner { display: none !important; }
+    </style>
+</head>
+
+<body>
+
+    <div class="checkout-page">
+        <!-- Columna Izquierda (Formularios) -->
+        <div class="checkout-main">
+            <div class="checkout-main-content">
+                
+                <header class="checkout-header">
+                    <a href="index.html" class="checkout-logo">
+                        <img src="assets/images/logo-andre.png" alt="Logo">
+                    </a>
+                    <a href="login.html" class="checkout-login-link">Iniciar sesión</a>
+                </header>
+
+                <!-- CONTACTO -->
+                <h2 class="checkout-section-title">Contacto</h2>
+                <div class="checkout-form-group">
+                    <input type="email" id="checkout-email" class="checkout-input" placeholder="Correo electrónico" required>
+                </div>
+                <label class="checkout-checkbox-group">
+                    <input type="checkbox" class="checkout-checkbox" id="checkout-newsletter" checked>
+                    Enviarme novedades y ofertas por correo electrónico
+                </label>
+
+                <!-- ENTREGA -->
+                <h2 class="checkout-section-title">Entrega</h2>
+                <div class="checkout-form-group">
+                    <select id="checkout-country" class="checkout-input">
+                        <option value="Colombia">Colombia</option>
+                    </select>
+                </div>
+                
+                <div class="checkout-form-row">
+                    <div class="checkout-form-group">
+                        <input type="text" id="checkout-firstname" class="checkout-input" placeholder="Nombres" required>
+                    </div>
+                    <div class="checkout-form-group">
+                        <input type="text" id="checkout-lastname" class="checkout-input" placeholder="Apellidos" required>
+                    </div>
+                </div>
+
+                <div class="checkout-form-group">
+                    <input type="text" id="checkout-cedula" class="checkout-input" placeholder="Cédula" required>
+                </div>
+
+                <div class="checkout-form-group">
+                    <input type="text" id="checkout-address" class="checkout-input" placeholder="Dirección completa" required>
+                </div>
+
+                <div class="checkout-form-group">
+                    <input type="text" id="checkout-apt" class="checkout-input" placeholder="Casa, apartamento, etc. (opcional)">
+                </div>
+
+                <div class="checkout-form-row">
+                    <div class="checkout-form-group">
+                        <input type="text" id="checkout-city" class="checkout-input" placeholder="Ciudad" required>
+                    </div>
+                    <div class="checkout-form-group">
+                        <input type="text" id="checkout-state" class="checkout-input" placeholder="Departamento" required>
+                    </div>
+                </div>
+
+                <div class="checkout-form-group">
+                    <input type="tel" id="checkout-phone" class="checkout-input" placeholder="Teléfono / WhatsApp" required>
+                </div>
+
+                <!-- MÉTODOS DE ENVÍO -->
+                <h2 class="checkout-section-title">Métodos de envío</h2>
+                <div class="checkout-method-list">
+                    
+                    <label class="checkout-method-item selected" onclick="selectShipping(this, 15000, 'Envío Local')">
+                        <div class="checkout-method-label">
+                            <input type="radio" name="shipping" value="15000" class="checkout-checkbox" checked>
+                            ENVÍO LOCAL MEDELLÍN
+                        </div>
+                        <span class="checkout-method-price">$15.000 COP</span>
+                    </label>
+
+                    <label class="checkout-method-item" onclick="selectShipping(this, 20000, 'Envío Nacional')">
+                        <div class="checkout-method-label">
+                            <input type="radio" name="shipping" value="20000" class="checkout-checkbox">
+                            ENVÍO NACIONAL
+                        </div>
+                        <span class="checkout-method-price">$20.000 COP</span>
+                    </label>
+
+                    <label class="checkout-method-item" onclick="selectShipping(this, 0, 'Recogida Taller')">
+                        <div class="checkout-method-label">
+                            <input type="radio" name="shipping" value="0" class="checkout-checkbox">
+                            RECOGIDA EN TALLER
+                        </div>
+                        <span class="checkout-method-price">Gratis</span>
+                    </label>
+
+                </div>
+
+                <!-- PAGO -->
+                <h2 class="checkout-section-title">Pago</h2>
+                <p style="font-size: 13px; color: var(--color-text-light); margin-bottom: 15px;">
+                    Todas las transacciones son seguras y están encriptadas. Tu pedido se concretará una vez valides la transferencia.
+                </p>
+
+                <div class="checkout-method-list">
+                    
+                    <!-- Nequi -->
+                    <label class="checkout-method-item selected" onclick="selectPayment(this, 'Nequi')">
+                        <div class="checkout-method-label">
+                            <input type="radio" name="payment" value="nequi" class="checkout-checkbox" checked>
+                            Pago por Nequi
+                        </div>
+                        <span style="color:#C94A1F; font-size: 20px;"><i class="fas fa-mobile-alt"></i></span>
+                    </label>
+                    <div class="checkout-payment-details">
+                        <p>Transfiere el total a Nequi: <strong>321 949 4475</strong> (A nombre de Andrea).</p>
+                        <p>Al hacer clic en "Finalizar Compra", se registrará tu pedido y te pediremos enviar el comprobante por WhatsApp.</p>
+                    </div>
+
+                    <!-- Bancolombia -->
+                    <label class="checkout-method-item" onclick="selectPayment(this, 'Bancolombia')">
+                        <div class="checkout-method-label">
+                            <input type="radio" name="payment" value="bancolombia" class="checkout-checkbox">
+                            Transferencia Bancolombia
+                        </div>
+                        <span style="color:#FFCC00; font-size: 20px;"><i class="fas fa-university"></i></span>
+                    </label>
+                    <div class="checkout-payment-details">
+                        <p>Cuenta de Ahorros Bancolombia: <strong>55387247326</strong>.</p>
+                        <p>Al hacer clic en "Finalizar Compra", finalizaremos el proceso y enviaremos los detalles a WhatsApp junto con el comprobante.</p>
+                    </div>
+
+                </div>
+
+                <!-- FACTURACIÓN -->
+                <h2 class="checkout-section-title">Dirección de facturación</h2>
+                <div class="checkout-method-list" style="margin-bottom: 30px;">
+                    <label class="checkout-method-item selected">
+                        <div class="checkout-method-label">
+                            <input type="radio" name="billing" class="checkout-checkbox" checked>
+                            La misma dirección de envío
+                        </div>
+                    </label>
+                </div>
+
+                <!-- INSTRUCCIONES ESPECIALES (De la Petición original del usuario) -->
+                <h2 class="checkout-section-title">Notas de Pedido (Opcional)</h2>
+                 <div class="checkout-form-group">
+                    <textarea id="checkout-notes" class="checkout-input" style="height: 80px; resize:none;" placeholder="Ej. Empaque para regalo, dejar en consejería..."></textarea>
+                </div>
+
+                <button class="btn-checkout" id="btn-submit-order" onclick="submitCheckoutOrder()">Finalizar Compra</button>
+
+                <footer class="checkout-footer">
+                    <a href="#">Política de reembolso</a>
+                    <a href="#">Política de privacidad</a>
+                    <a href="#">Términos del servicio</a>
+                </footer>
+
+            </div>
+        </div>
+
+        <!-- Columna Derecha (Resumen Carrito) fondo rosa -->
+        <div class="checkout-sidebar">
+            
+            <div class="checkout-product-list" id="checkout-product-list">
+                <!-- Se inyecta con JS -->
+                <p>Cargando productos...</p>
+            </div>
+
+            <div class="checkout-discount">
+                <input type="text" class="checkout-input" placeholder="Código de descuento o tarjeta de regalo">
+                <button class="btn-discount">Aplicar</button>
+            </div>
+
+            <div class="checkout-summary">
+                <div class="checkout-summary-row">
+                    <span>Subtotal</span>
+                    <span id="checkout-subtotal">$0</span>
+                </div>
+                <div class="checkout-summary-row">
+                    <span>Envío</span>
+                    <span id="checkout-shipping-cost">$15.000</span>
+                </div>
+                
+                <div class="checkout-summary-total">
+                    <span>Total</span>
+                    <div>
+                        <span class="checkout-total-currency">COP</span>
+                        <span id="checkout-total">$0</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- SUCCESS MODAL (Usaremos el que ya existe o generaremos uno mejor) -->
+    <div id="checkout-success-modal" class="success-modal">
+        <div class="success-content" style="text-align: center;">
+            <i class="fas fa-check-circle" style="font-size: 60px; color: #F78FB3; margin-bottom: 10px;"></i>
+            <h3>¡Pedido Confirmado!</h3>
+            <p id="success-message" style="margin-bottom: 10px;">Tu orden ha sido registrada. Para despachar tu paquete, transfiere el dinero a la cuenta que elegiste y envíanos el comprobante.</p>
+            
+            <div style="display: flex; gap: 10px; justify-content: center; margin: 20px 0;">
+                <a href="https://transacciones.nequi.com/bdigital/login.jsp" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="flex: 1; padding: 10px; font-size: 13px; color: #000; border-color: #C94A1F;">
+                    <i class="fas fa-mobile-alt" style="color: #C94A1F;"></i> Abrir Nequi
+                </a>
+                <a href="https://sucursalpersonas.transaccionesbancolombia.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="flex: 1; padding: 10px; font-size: 13px; color: #000; border-color: #FFCC00;">
+                    <i class="fas fa-university" style="color: #FFCC00;"></i> Abrir Bancolombia
+                </a>
+            </div>
+
+            <button class="btn btn-primary" id="btn-go-whatsapp" style="width: 100%; margin-top: 0px; background-color: #25D366; border-color: #25D366;">
+            <i class="fab fa-whatsapp" style="font-size: 18px; margin-right: 5px;"></i> Ya pagué, enviar comprobante
+            </button>
+        </div>
+    </div>
+    <div id="checkout-overlay" class="cart-overlay" style="z-index: 10000;"></div>
+
+    <!-- JS (Simulamos la lógica del carrito e inventario) -->
+    <script src="assets/js/api-client.js"></script>
+    <script src="assets/js/inventory.js"></script>
+    <script src="assets/js/checkout.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,319 @@
+/* assets/css/checkout.css */
+
+.checkout-page {
+    display: flex;
+    min-height: 100vh;
+    font-family: var(--font-body);
+    color: var(--color-text);
+}
+
+.checkout-main {
+    flex: 1;
+    padding: 5% 10%;
+    background-color: var(--color-bg);
+    display: flex;
+    justify-content: flex-end; /* Align right to meet the sidebar */
+}
+
+.checkout-sidebar {
+    width: 45%;
+    background-color: #FFDEE9; /* Soft pink background like the reference */
+    padding: 5% 5%;
+    border-left: 1px solid #FFC2D1;
+}
+
+.checkout-main-content {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Header with Logo */
+.checkout-header {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkout-logo img {
+    height: 60px; /* Reduced since it's just the header */
+    width: auto;
+}
+
+.checkout-login-link {
+    color: var(--color-primary-light);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Forms */
+.checkout-section-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    margin-top: 35px;
+}
+
+.checkout-form-group {
+    margin-bottom: 15px;
+}
+
+.checkout-form-row {
+    display: flex;
+    gap: 15px;
+}
+.checkout-form-row .checkout-form-group {
+    flex: 1;
+}
+
+.checkout-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 14px;
+    transition: var(--transition-fast);
+}
+
+.checkout-input:focus {
+    border-color: #FFB3D9; /* Pink highlight */
+    box-shadow: 0 0 0 2px rgba(255, 179, 217, 0.3);
+}
+
+.checkout-checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--color-text-light);
+    cursor: pointer;
+}
+
+.checkout-checkbox {
+    accent-color: #FFB3D9;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Methods Lists (Shipping & Payment) */
+.checkout-method-list {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.checkout-method-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid var(--color-border);
+    cursor: pointer;
+    background-color: var(--color-bg);
+}
+
+.checkout-method-item:last-child {
+    border-bottom: none;
+}
+
+.checkout-method-item.selected {
+    background-color: #FFF0F5; /* Very light pink */
+    border-color: #FFB3D9;
+}
+
+.checkout-method-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    width: 100%;
+    cursor: pointer;
+}
+
+.checkout-method-price {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.checkout-payment-details {
+    padding: 15px;
+    background-color: #F8F8F8;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 14px;
+    color: var(--color-text-light);
+    display: none; /* Hidden by default */
+}
+.checkout-method-item.selected + .checkout-payment-details {
+    display: block; /* Shown when selected */
+}
+
+/* Buttons */
+.btn-checkout {
+    background-color: #F78FB3; /* The pink from the screenshot */
+    color: white;
+    width: 100%;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: background-color 0.2s;
+}
+.btn-checkout:hover {
+    background-color: #F37599;
+}
+
+/* Footer Links */
+.checkout-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    gap: 15px;
+}
+.checkout-footer a {
+    color: #F78FB3;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+/* ── SIDEBAR (Pink side) ── */
+.checkout-product-list {
+    margin-bottom: 30px;
+}
+
+.checkout-product-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.checkout-product-image {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    background-color: white;
+    border: 1px solid #FFC2D1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.checkout-product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.checkout-product-qty {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #555;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.checkout-product-info {
+    flex: 1;
+}
+
+.checkout-product-title {
+    font-size: 14px;
+    font-weight: 600;
+}
+.checkout-product-variant {
+    font-size: 12px;
+    color: #777;
+    margin-top: 4px;
+}
+
+.checkout-product-price {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.checkout-discount {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #FFC2D1;
+}
+.checkout-discount .checkout-input {
+    background-color: white;
+    border-color: white;
+}
+.btn-discount {
+    background-color: #F3A8C5;
+    border: none;
+    border-radius: 6px;
+    padding: 0 20px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-discount:hover {
+    background-color: #F78FB3;
+}
+
+.checkout-summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #444;
+}
+.checkout-summary-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #FFC2D1;
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+}
+
+.checkout-total-currency {
+    font-size: 12px;
+    color: #777;
+    margin-right: 5px;
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+    .checkout-page {
+        flex-direction: column-reverse; /* Usually Sidebar sits at top on mobile */
+    }
+    .checkout-sidebar {
+        width: 100%;
+        padding: 8% 5%;
+        border-left: none;
+        border-bottom: 1px solid #FFC2D1;
+    }
+    .checkout-main {
+        width: 100%;
+        justify-content: center;
+        padding: 8% 5%;
+    }
+    .checkout-main-content {
+        max-width: 100%;
+    }
+}

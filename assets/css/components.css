@@ -9,13 +9,15 @@
 }
 
 .product-card {
-  background: var(--color-bg);
+  background: var(--color-bg); /* Blanco */
   border-radius: var(--radius-md);
   overflow: hidden;
   transition: var(--transition-base);
-  border: 1px solid var(--color-border-light);
+  border: none;
+  box-shadow: none; /* Sombras eliminadas a petición */
   opacity: 0;
   transform: translateY(30px);
+  position: relative;
 }
 
 .product-card.visible {
@@ -25,52 +27,50 @@
 
 .product-card:hover {
   transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: none; /* Sin sombra en hover también */
   border-color: transparent;
-}
-
-.product-card .product-image {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 1 / 1;
-}
-
-.product-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: var(--transition-slow);
-}
-
-.product-card:hover img {
-  transform: scale(1.08);
 }
 
 .product-card .product-tag {
   position: absolute;
-  top: var(--space-md);
-  left: var(--space-md);
-  background: var(--color-primary);
-  color: var(--color-text-inverse);
-  padding: 4px 12px;
-  border-radius: var(--radius-sm);
+  top: auto;
+  bottom: 0px; 
+  left: 20px;
+  transform: translateY(50%);
+  background: var(--color-accent); /* Amarillo Pastel de la Oferta */
+  color: var(--color-text); /* Texto oscuro para legibilidad */
+  padding: 6px 14px;
+  border-radius: 20px; /* Estilo píldora */
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  z-index: 2;
+  letter-spacing: 0.05em;
+  z-index: 5;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.product-card .product-image {
+  position: relative;
+  overflow: visible; /* Permitir overlap del tag */
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  aspect-ratio: 1 / 1;
+}
+
+.product-card .product-image img {
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
 }
 
 .product-info {
-  padding: var(--space-lg);
+  padding: 30px var(--space-lg) var(--space-lg); /* Padding extra arriba por el tag solapado */
+  text-align: center; /* TODO texto centrado como en la imagen */
 }
 
 .product-info h3 {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: var(--space-xs);
-  letter-spacing: -0.01em;
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+  letter-spacing: 0.02em;
 }
 
 .product-info .product-aroma {
@@ -82,30 +82,43 @@
 }
 
 .product-info .product-price {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 800;
   color: var(--color-text);
   margin-bottom: var(--space-md);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-info .old-price {
+  text-decoration: line-through;
+  color: #a0a0a0;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .product-buttons {
   margin-top: var(--space-md);
   display: flex;
+  flex-direction: column; /* Botones apilados, y ocupando TODO el ancho de la tarjeta */
   gap: var(--space-sm);
-  flex-wrap: wrap;
 }
 
 .product-buttons .btn {
-  padding: 10px 20px;
-  font-size: 12px;
-  flex: 1;
-  min-width: 120px;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%; /* Botón gigante rosado a lo ancho como en la imagen */
+  border-radius: 8px; /* Redondeado suave pildora como en imagen */
+  border: none; /* Sin bordes grises */
 }
 
 /* ── FOOTER ── */
 .footer {
-  background: var(--color-bg-dark);
-  color: var(--color-text-inverse);
+  background: var(--color-bg-cream); /* Celeste Pastel/Suave */
+  color: var(--color-text); /* Texto principal (oscuro) */
   padding: var(--space-2xl) 0 var(--space-xl);
 }
 
@@ -114,7 +127,7 @@
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: var(--space-xl);
   padding-bottom: var(--space-xl);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
   margin-bottom: var(--space-xl);
 }
 
@@ -127,7 +140,7 @@
 }
 
 .footer-brand .logo strong {
-  color: var(--color-text-inverse);
+  color: var(--color-text);
 }
 
 .footer-brand .logo i {
@@ -135,7 +148,7 @@
 }
 
 .footer-brand p {
-  color: rgba(255,255,255,0.6);
+  color: var(--color-text-light);
   font-size: 14px;
   line-height: 1.7;
 }
@@ -145,12 +158,12 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: var(--space-md);
-  color: var(--color-text-inverse);
+  color: var(--color-text);
 }
 
 .footer-col a {
   display: block;
-  color: rgba(255,255,255,0.6);
+  color: var(--color-text-light);
   font-size: 14px;
   margin-bottom: var(--space-sm);
   transition: var(--transition-fast);
@@ -168,7 +181,7 @@
 }
 
 .footer-bottom p {
-  color: rgba(255,255,255,0.4);
+  color: var(--color-text-light);
   font-size: 13px;
 }
 
@@ -178,7 +191,7 @@
 }
 
 .footer-social a {
-  color: rgba(255,255,255,0.5);
+  color: var(--color-text-light);
   font-size: 20px;
   transition: var(--transition-base);
 }

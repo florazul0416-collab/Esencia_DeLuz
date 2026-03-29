@@ -5,7 +5,7 @@
 /* ── HERO SECTION ── */
 .hero {
   position: relative;
-  min-height: 85vh;
+  min-height: 55vh; /* Altura original 85vh, reducida para ser más pequeño */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,9 +23,9 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.55) 0%,
-    rgba(0, 0, 0, 0.3) 50%,
-    rgba(0, 0, 0, 0.6) 100%
+    rgba(44, 54, 63, 0.4) 0%, /* Azul oscuro sutil */
+    rgba(212, 196, 252, 0.3) 50%, /* Tinte Lila pastel mágico */
+    rgba(247, 143, 179, 0.45) 100% /* Tinte Rosa pastel inferior */
   );
   z-index: 1;
 }
@@ -98,7 +98,7 @@
 
 /* ── MARQUEE TICKER ── */
 .marquee-section {
-  background: var(--color-primary);
+  background: var(--color-accent); /* Lila Pastel */
   overflow: hidden;
   padding: var(--space-md) 0;
   white-space: nowrap;
@@ -115,7 +115,7 @@
   align-items: center;
   gap: var(--space-lg);
   padding: 0 var(--space-xl);
-  color: var(--color-text-inverse);
+  color: var(--color-text); /* Texto oscuro para la marquesina Lila */
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
@@ -126,7 +126,7 @@
 .marquee-item .dot {
   width: 6px;
   height: 6px;
-  background: var(--color-text-inverse);
+  background: var(--color-text); /* Punto oscuro */
   border-radius: var(--radius-full);
   opacity: 0.6;
 }
@@ -364,7 +364,7 @@
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .hero {
-    min-height: 70vh;
+    min-height: 50vh; /* Reducida de 70vh */
     padding: var(--space-2xl) var(--space-md);
   }
 
