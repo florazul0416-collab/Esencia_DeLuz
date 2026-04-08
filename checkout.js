@@ -101,49 +101,20 @@ async function submitCheckoutOrder() {
     checkoutCart.forEach(item => subtotal += (item.price * item.quantity));
     const total = subtotal + selectedShippingCost;
 
-    // 3. Crear el mensaje de WhatsApp detallado
-    let text = `✨ *NUEVO PEDIDO WEB* ✨\n\n`;
-    text += `*🛍 DATOS DEL CLIENTE:*\n`;
-    text += `- Nombre: ${firstname} ${lastname}\n`;
-    text += `- Cédula: ${cedula}\n`;
-    text += `- Celular: ${phone}\n`;
-    text += `- Correo: ${email}\n\n`;
-    
-    text += `*📦 DATOS DE ENVÍO:*\n`;
-    text += `- Dirección: ${address}\n`;
-    text += `- Ciudad: ${city}\n`;
-    text += `- Método Seleccionado: ${selectedShippingMethod} ($${selectedShippingCost.toLocaleString('es-CO')})\n\n`;
-
-    text += `*🕯 PRODUCTOS:*\n`;
-    checkoutCart.forEach(item => {
-        text += `- ${item.quantity}x ${item.name} ($${(item.price * item.quantity).toLocaleString('es-CO')})\n`;
-    });
-
-    text += `\n*🧾 DESGLOSE:*\n`;
-    text += `- Subtotal: $${subtotal.toLocaleString('es-CO')}\n`;
-    text += `- Envío: $${selectedShippingCost.toLocaleString('es-CO')}\n`;
-    text += `- *TOTAL: $${total.toLocaleString('es-CO')}*\n\n`;
-
-    text += `*💳 MÉTODO DE PAGO:*\n`;
-    text += `- Transferencia a: *${selectedPaymentMethod}*\n\n`;
-
-    text += `*📝 NOTAS DEL CLIENTE:*\n`;
-    text += `- ${notes}\n\n`;
-
-    text += `_Te adjunto el comprobante de transferencia a continuación:_`;
-
-    const encodedText = encodeURIComponent(text);
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER_CHECKOUT}?text=${encodedText}`;
-
-    // 4. Intentar descontar stock si tienes esa función en window.deductStockOnCheckout
+    // 3. Intentar descontar stock
     if (typeof window.deductStockOnCheckout === "function") {
         await window.deductStockOnCheckout(checkoutCart);
     }
     
-    // 5. Registrar en la base de datos (si aplica)
+    // 4. Registrar en la base de datos y lanzar Pasarela
     if(typeof apiClient !== "undefined" && typeof apiClient.createOrder === "function") {
         try {
-            await apiClient.createOrder({
+            // Mostrar estado de carga
+            const btnSubmit = document.getElementById('btn-submit-order');
+            btnSubmit.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Conectando al banco...';
+            btnSubmit.disabled = true;
+
+            const orderResponse = await apiClient.createOrder({
                 items: checkoutCart,
                 total: total,
                 shipping: selectedShippingMethod,
@@ -153,24 +124,48 @@ async function submitCheckoutOrder() {
                 address: `${address}, ${city}`,
                 notes: notes
             });
+            
+            if (orderResponse.orderId) {
+                // Generar el pago en Mercado Pago
+                const preferenceData = {
+                    items: checkoutCart,
+                    customer: `${firstname} ${lastname}`,
+                    email: email,
+                    total: total,
+                    shipping: selectedShippingCost,
+                    orderId: orderResponse.orderId
+                };
+                
+                // Usando API_BASE_URL (declarado en api-client.js)
+                const prefResponse = await fetch(`${API_BASE_URL}/create_preference`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(preferenceData)
+                });
+                const prefData = await prefResponse.json();
+                
+                if (prefData.init_point) {
+                    // Limpiar carrito exitosamente
+                    localStorage.removeItem('esenciaCart');
+                    
+                    // Redirigir maravillosamente a Mercado Pago
+                    window.location.href = prefData.init_point;
+                } else {
+                    alert("Uy, tuvimos un problema contactando a la pasarela de pagos. Por favor intenta de nuevo.");
+                    btnSubmit.innerHTML = 'Finalizar Compra';
+                    btnSubmit.disabled = false;
+                }
+            } else {
+                alert("Error creando la orden base. Intenta de nuevo.");
+                btnSubmit.innerHTML = 'Finalizar Compra';
+                btnSubmit.disabled = false;
+            }
         } catch (error) {
-            console.error("Error guardando orden en BD (silenciado para permitir WhatsApp):", error);
+            console.error("Error guardando orden:", error);
+            alert("Error de red intentando finalizar compra. Intenta más tarde.");
+            const btnSubmit = document.getElementById('btn-submit-order');
+            btnSubmit.innerHTML = 'Finalizar Compra';
+            btnSubmit.disabled = false;
         }
     }
-
-    // 6. Limpiar el carrito visual y storage
-    localStorage.removeItem('esenciaCart');
-    
-    // 7. Mostrar Modal de éxito para que envíen el voucher
-    const overlay = document.getElementById('checkout-overlay');
-    const modal = document.getElementById('checkout-success-modal');
-    const wpBtn = document.getElementById('btn-go-whatsapp');
-
-    overlay.style.display = 'block';
-    modal.classList.add('open');
-
-    wpBtn.onclick = () => {
-        window.open(whatsappUrl, '_blank');
-        window.location.href = 'index.html'; // Volver a la página principal
-    };
 }
