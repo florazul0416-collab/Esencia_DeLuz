@@ -78,22 +78,27 @@
             <div id="edicion-especial" class="section-header fade-up">
                 <p class="subtitle">Colección Temática</p>
                 <h2>Edición Especial del Mes</h2>
-                <p style="margin-top: 10px; color: var(--color-text-light); font-size: 14px;">(Puedes cambiar la foto y el nombre del producto en el código según la fecha: Día de la Madre, Navidad, etc.)</p>
             </div>
 
             <!-- CAMBIAR ESTE PRODUCTO SEGÚN LA TEMÁTICA -->
-            <div class="products-grid" style="margin-bottom: 60px; justify-content: center; display: flex; flex-wrap: wrap;">
-                <div class="product-card" style="border: 2px solid var(--color-primary); box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 400px; width: 100%;">
+            <div class="products-grid"
+                style="margin-bottom: 60px; justify-content: center; display: flex; flex-wrap: wrap;">
+                <div class="product-card"
+                    style="border: 2px solid var(--color-primary); box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 400px; width: 100%;">
                     <div class="product-image">
-                        <span class="product-tag" style="background-color: var(--color-primary); color: white;">Edición Especial</span>
-                        <img src="assets/images/vela-helado.jpeg" alt="Vela Especial" onerror="this.src='assets/images/product-rose.png'">
+                        <span class="product-tag" style="background-color: var(--color-primary); color: white;">Edición
+                            Especial</span>
+                        <img src="assets/images/vela-helado.jpeg" alt="Vela Especial"
+                            onerror="this.src='assets/images/product-rose.png'">
                     </div>
                     <div class="product-info">
                         <h3>Vela Helado</h3>
                         <p class="product-aroma">Aroma Crema de Galleta</p>
                         <p class="product-price"><span class="old-price">$40.000</span> $30.000</p>
                         <div class="product-buttons">
-                            <a class="btn btn-primary" href="product-detail.html?name=Vela Helado&price=30.000&image=assets/images/vela-helado.jpeg&aroma=Crema de Galleta&intencion=Alegra tu niño interior&desc=Déjate envolver por el delicioso aroma a crema de galleta recién horneada. Una vela pensada para llenar cualquier espacio de calidez, sacar una sonrisa y evocar tus recuerdos más dulces.">Ver detalles</a>
+                            <a class="btn btn-primary"
+                                href="product-detail.html?name=Vela Helado&price=30.000&image=assets/images/vela-helado.jpeg&aroma=Crema de Galleta&intencion=Alegra tu niño interior&desc=Déjate envolver por el delicioso aroma a crema de galleta recién horneada. Una vela pensada para llenar cualquier espacio de calidez, sacar una sonrisa y evocar tus recuerdos más dulces.">Ver
+                                detalles</a>
                             <button class="btn btn-outline"
                                 onclick="addToCart('Vela Helado', 30000, 'assets/images/vela-helado.jpeg')">
                                 <i class="fas fa-shopping-bag"></i> Añadir
@@ -102,7 +107,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <hr style="border: 0; border-top: 1px solid var(--color-border); margin-bottom: 60px;">
             <!-- FIN EDICIÓN ESPECIAL -->
 
@@ -191,7 +196,9 @@
                         <p class="product-aroma">Lavanda Relajante</p>
                         <p class="product-price">$15.000</p>
                         <div style="margin: 10px 0;">
-                            <select style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc; font-family: inherit; color: #555; cursor: pointer; outline: none;" onchange="
+                            <select
+                                style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc; font-family: inherit; color: #555; cursor: pointer; outline: none;"
+                                onchange="
                                 const pNode = this.parentElement.previousElementSibling;
                                 const btns = this.parentElement.nextElementSibling;
                                 if (this.value === '15000') {
@@ -231,7 +238,9 @@
                         <p class="product-aroma">Frutal y Energizante</p>
                         <p class="product-price">$18.000</p>
                         <div style="margin: 10px 0;">
-                            <select style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc; font-family: inherit; color: #555; cursor: pointer; outline: none;" onchange="
+                            <select
+                                style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc; font-family: inherit; color: #555; cursor: pointer; outline: none;"
+                                onchange="
                                 const pNode = this.parentElement.previousElementSibling;
                                 const btns = this.parentElement.nextElementSibling;
                                 if (this.value === '18000') {
@@ -359,7 +368,9 @@
                         <p class="product-aroma">Frutales</p>
                         <p class="product-price">$15.000</p>
                         <div style="margin: 10px 0;">
-                            <select style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc; font-family: inherit; color: #555; cursor: pointer; outline: none;" onchange="
+                            <select
+                                style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc; font-family: inherit; color: #555; cursor: pointer; outline: none;"
+                                onchange="
                                 const pNode = this.parentElement.previousElementSibling;
                                 const btns = this.parentElement.nextElementSibling;
                                 if (this.value === '15000') {
