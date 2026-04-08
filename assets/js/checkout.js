@@ -148,6 +148,9 @@ async function submitCheckoutOrder() {
                 total: total,
                 shipping: selectedShippingMethod,
                 customer: `${firstname} ${lastname}`,
+                email: email,
+                phone: phone,
+                address: `${address}, ${city}`,
                 notes: notes
             });
         } catch (error) {
