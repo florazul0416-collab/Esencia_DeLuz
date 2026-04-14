@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -139,7 +139,7 @@
                 <ul>
                     <li><i class="fab fa-whatsapp"></i> +57 3219494475</li>
                     <li><i class="fas fa-envelope"></i> florazul0416@gmail.com</li>
-                    <li><a href="https://www.instagram.com/Andre_Esencia_deLuz" target="_blank"><i class="fab fa-instagram"></i> @Andre_Esencia_deLuz</a></li>
+                    <li><a href="https://www.instagram.com/Andre_Esencia_deLuz" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> @Andre_Esencia_deLuz</a></li>
                 </ul>
             </div>
         </div>
@@ -149,7 +149,7 @@
     </footer>
 
     <!-- WHATSAPP FLOAT -->
-    <a href="https://wa.me/573219494475" class="whatsapp-float" target="_blank" aria-label="Chat by WhatsApp">
+    <a href="https://wa.me/573219494475" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat by WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -164,21 +164,14 @@
             <!-- Items from JS -->
         </div>
         <div class="cart-footer">
-            <div class="cart-shipping" style="margin-bottom: 15px;">
-                <label for="shipping-select-faq" style="font-size: 14px; font-weight: 600; display: block; margin-bottom: 6px;">Método de Envío:</label>
-                <select id="shipping-select" class="form-input" style="width: 100%; padding: 10px; border: 1px solid var(--color-border); border-radius: 6px; font-family: inherit; font-size: 14px;" onchange="renderCart()">
-                    <option value="0">Recogida en taller (Gratis)</option>
-                    <option value="10000">Envío Local Medellín ($10.000)</option>
-                    <option value="15000">Envío Nacional ($15.000)</option>
-                </select>
-            </div>
-            <div class="cart-total">
-                <span>Total:</span>
-                <span id="cart-total-price">$0</span>
-            </div>
-            <button class="btn btn-primary" style="width: 100%;" onclick="checkoutWhatsApp()">
-                <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </button>
+               <p style="font-size: 13px; color: #777; margin-bottom: 15px; text-align: center;">El envío se calculará en la pantalla de pago.</p>
+               <div class="cart-total">
+                    <span>Subtotal:</span>
+                    <span id="cart-total-price">$0</span>
+               </div>
+               <button class="btn btn-primary" style="width: 100%; background-color: #F78FB3; border-color: #F78FB3;" onclick="window.location.href='checkout.html'">
+                    <i class="fas fa-lock"></i> Finalizar Compra
+               </button>
         </div>
     </div>
 
