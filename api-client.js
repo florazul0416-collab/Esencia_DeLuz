@@ -1,19 +1,26 @@
 // Detección dinámica de la URL del servidor
 const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
     ? 'http://localhost:5000/api'
-    : 'https://tu-servidor-en-render.onrender.com/api'; // <--- Cambiar por tu URL de Render después de desplegar
+    : 'https://esencia-backend.onrender.com/api'; // <--- URL de Render actualizada
 
 const apiClient = {
     // 1. Obtener todos los productos
     async getProducts() {
         try {
-            const response = await fetch(`${API_BASE_URL}/products`);
+            // Timeout de 5 segundos para no quedar esperando a Render
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+            const response = await fetch(`${API_BASE_URL}/products`, {
+                signal: controller.signal
+            });
+            clearTimeout(timeoutId);
+
             if (!response.ok) throw new Error('Error al cargar productos');
             return await response.json();
         } catch (error) {
-            console.error('API Error:', error);
-            // Si falla la API, podríamos intentar cargar de localStorage como respaldo
-            return JSON.parse(localStorage.getItem('inventory')) || [];
+            console.warn('El servidor tardó en responder o no está disponible. Usando inventario local.', error);
+            return null;
         }
     },
 
