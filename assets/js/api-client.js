@@ -63,18 +63,46 @@ const apiClient = {
     async createOrder(orderData) {
         try {
             const token = sessionStorage.getItem('auth_token');
+            
+            // Timeout de 4 segundos para no bloquear la compra si Render está apagado
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 4000);
+
             const response = await fetch(`${API_BASE_URL}/orders`, {
                 method: 'POST',
                 headers: { 
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}` 
                 },
-                body: JSON.stringify(orderData)
+                body: JSON.stringify(orderData),
+                signal: controller.signal
+            });
+            clearTimeout(timeoutId);
+            
+            return await response.json();
+        } catch (error) {
+            console.error('Order Error (silenciado por timeout o error de red):', error);
+            // Retornamos un log falso para no frenar la compra
+            return { error: 'No se pudo registrar la orden en vivo, continuando a WhatsApp...' };
+        }
+    },
+
+    // 5. Actualizar el stock de un producto (Admin)
+    async updateProductStock(id, stock) {
+        try {
+            const token = sessionStorage.getItem('auth_token');
+            const response = await fetch(`${API_BASE_URL}/products/${id}`, {
+                method: 'PUT',
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}` 
+                },
+                body: JSON.stringify({ stock_quantity: stock })
             });
             return await response.json();
         } catch (error) {
-            console.error('Order Error:', error);
-            return { error: 'No se pudo registrar la orden' };
+            console.error('Update Product Stock Error:', error);
+            return { error: 'Error al actualizar inventario' };
         }
     }
 };

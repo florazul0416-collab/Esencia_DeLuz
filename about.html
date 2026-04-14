@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -74,7 +74,7 @@
 
                     <div class="about-text fade-up">
 
-                         <p class="text-uppercase" style="color: var(--color-primary); margin-bottom: 12px;">
+                         <p class="text-uppercase" class="text-primary-spaced text-uppercase">
                               Desde el Corazón
                          </p>
 
@@ -155,7 +155,7 @@
      </section>
 
      <!-- WHATSAPP FLOAT -->
-     <a href="https://wa.me/573219494475" class="whatsapp-float" target="_blank" aria-label="Chat by WhatsApp">
+     <a href="https://wa.me/573219494475" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat by WhatsApp">
           <i class="fab fa-whatsapp"></i>
      </a>
 
@@ -188,17 +188,17 @@
                     </div>
                     <div class="footer-col">
                          <h4>Contacto</h4>
-                         <a href="https://wa.me/573219494475" target="_blank">WhatsApp</a>
+                         <a href="https://wa.me/573219494475" target="_blank" rel="noopener noreferrer">WhatsApp</a>
                          <a href="mailto:florazul0416@gmail.com">Email</a>
-                         <a href="https://www.instagram.com/Andre_Esencia_deLuz" target="_blank">Instagram</a>
+                         <a href="https://www.instagram.com/Andre_Esencia_deLuz" target="_blank" rel="noopener noreferrer">Instagram</a>
                     </div>
                </div>
                <div class="footer-bottom">
                     <p>© 2026 Andre-Esencia_deluz. Todos los derechos reservados.</p>
                     <div class="footer-social">
-                         <a href="https://wa.me/573219494475" target="_blank" aria-label="WhatsApp"><i
+                         <a href="https://wa.me/573219494475" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i
                                    class="fab fa-whatsapp"></i></a>
-                         <a href="https://www.instagram.com/Andre_Esencia_deLuz" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                         <a href="https://www.instagram.com/Andre_Esencia_deLuz" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                </div>
           </div>
@@ -214,23 +214,16 @@
         <div class="cart-items" id="cart-items-container">
             <!-- Items from JS -->
         </div>
-        <div class="cart-footer">
-            <div class="cart-shipping" style="margin-bottom: 15px;">
-                <label for="shipping-select-about" style="font-size: 14px; font-weight: 600; display: block; margin-bottom: 6px;">Método de Envío:</label>
-                <select id="shipping-select" class="form-input" style="width: 100%; padding: 10px; border: 1px solid var(--color-border); border-radius: 6px; font-family: inherit; font-size: 14px;" onchange="renderCart()">
-                    <option value="0">Recogida en taller (Gratis)</option>
-                    <option value="10000">Envío Local Medellín ($10.000)</option>
-                    <option value="15000">Envío Nacional ($15.000)</option>
-                </select>
-            </div>
-            <div class="cart-total">
-                <span>Total:</span>
-                <span id="cart-total-price">$0</span>
-            </div>
-            <button class="btn btn-primary" style="width: 100%;" onclick="checkoutWhatsApp()">
-                <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </button>
-        </div>
+           <div class="cart-footer">
+               <p style="font-size: 13px; color: #777; margin-bottom: 15px; text-align: center;">El envío se calculará en la pantalla de pago.</p>
+               <div class="cart-total" style="border-top: none;">
+                    <span>Subtotal:</span>
+                    <span id="cart-total-price">$0</span>
+               </div>
+               <button class="btn btn-primary" style="width: 100%; background-color: #F78FB3; border-color: #F78FB3;" onclick="window.location.href='checkout.html'">
+                    <i class="fas fa-lock"></i> Finalizar Compra
+               </button>
+          </div>
     </div>
 
     <script src="assets/js/api-client.js"></script>

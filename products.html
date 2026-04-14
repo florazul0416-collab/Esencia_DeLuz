@@ -457,6 +457,31 @@
     </footer>
 
     <script src="assets/js/whatsapp.js"></script>
+
+    <!-- CART DRAWER -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button class="cart-close" onclick="closeCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items-container">
+            <!-- Items from JS -->
+        </div>
+        <div class="cart-footer">
+            <p style="font-size: 13px; color: #777; margin-bottom: 15px; text-align: center;">El envío se calculará en
+                la pantalla de pago.</p>
+            <div class="cart-total">
+                <span>Subtotal:</span>
+                <span id="cart-total-price">$0</span>
+            </div>
+            <button class="btn btn-primary" style="width: 100%; background-color: #F78FB3; border-color: #F78FB3;"
+                onclick="window.location.href='checkout.html'">
+                <i class="fas fa-lock"></i> Finalizar Compra
+            </button>
+        </div>
+    </div>
+
     <script src="assets/js/api-client.js"></script>
     <script src="assets/js/inventory.js"></script>
     <script src="assets/js/cart.js"></script>

@@ -96,6 +96,13 @@ async function submitCheckoutOrder() {
         return;
     }
 
+    // Feedback visual en el botón
+    const btnSubmit = document.getElementById('btn-submit-order');
+    const originalText = btnSubmit.innerHTML;
+    btnSubmit.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Procesando...';
+    btnSubmit.disabled = true;
+    btnSubmit.style.opacity = '0.7';
+
     // 2. Calcular los totales
     let subtotal = 0;
     checkoutCart.forEach(item => subtotal += (item.price * item.quantity));
